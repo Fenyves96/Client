@@ -24,7 +24,7 @@ namespace AsynchronousClient
             try
             {
                 //Server IP address
-                IPAddress ipAddress = IPAddress.Loopback;
+                IPAddress ipAddress = IPAddress.Parse("192.168.0.192"); //ide majd be kell írni a PEMIK Wifi által kiosztott ip-jét, aki a szervergép lesz
 
                 if (ipAddress == null)
                     throw new Exception("No IPv4 address for server");
