@@ -4,6 +4,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Communication
 {
+    //ezt nem hasznájuk már, de mutatja, hogy hogy kell kinéznie egy osztálynak, 
+    //ahhoz, hogy el lehessen küldeni a servernek
+    //fontos kikötés: 
+    //-[Serializable] az osztály deklaráció előtt
+    //-Üres konstruktor
+    //-Minden attribútumnak legyen settere, mivel a szerver oldalon az üres konstruktor hívódik meg
+    //a deserializálás során és ezt követően a setterek
+    
     [Serializable]
     public class CommObject
     {

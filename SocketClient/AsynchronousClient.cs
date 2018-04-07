@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Communication;
 
+/*Ez az osztály gondoskodik a TCP/IP kapcsolat kliens oldalával
+ * Megadunk egy hostot, amire kapcsolódni szeretnénk és egy hozzá tartozó portot.
+ */
+
 namespace AsynchronousClient
 {
     public class SocketClient
@@ -19,12 +23,17 @@ namespace AsynchronousClient
         private static StreamReader reader;
         private static TcpClient client;
 
+        public static NetworkStream GetStream()
+        {
+            return client.GetStream();
+        }
+
         public static void StartClient()
         {
             try
             {
                 //Server IP address
-                IPAddress ipAddress = IPAddress.Parse("192.168.0.192"); //ide majd be kell írni a PEMIK Wifi által kiosztott ip-jét, aki a szervergép lesz
+                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
 
                 if (ipAddress == null)
                     throw new Exception("No IPv4 address for server");
@@ -52,21 +61,29 @@ namespace AsynchronousClient
                 client.Close();
             }
         }
-
-        public static async Task<CommObject> SendRequest(CommObject data)
+        /*Ez a függvény szolgál a Megrendelések elküldésére a szerverre
+        A serializer átalakítja json formátumra (egy sztringre), amit továbbítunk a szervernek, ahol egy
+        egy másik serializer visszalakítja objektummá*/
+        public static async Task<Order> SendRequest(Order o)
         {
             try
             {
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                string requestData = serializer.Serialize(data);
+                string requestData = serializer.Serialize(o);
                 await writer.WriteLineAsync(requestData);
+                
                 string responseStr = await reader.ReadLineAsync();
-                CommObject response = serializer.Deserialize<CommObject>(responseStr);
+                Console.WriteLine(responseStr);
+                Order response = serializer.Deserialize<Order>(responseStr);
+                
                 return response;
             }
             catch (Exception ex)
             {
-                return new CommObject(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Message);
+                //Console.WriteLine("Valami nem jó.");
+                return null;
             }
         }
     }

@@ -1,0 +1,14 @@
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\bin\Debug\SocketClient.exe.config
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\bin\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\bin\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\obj\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\SocketClient-master\SocketClient\obj\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\bin\Debug\SocketClient.exe.config
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\bin\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\bin\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
