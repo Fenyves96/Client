@@ -12,3 +12,10 @@ D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\SocketClient.exe
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\SocketClient.pdb
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Client\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\bin\Debug\SocketClient.exe.config
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\bin\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\bin\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\SocketClient.pdb

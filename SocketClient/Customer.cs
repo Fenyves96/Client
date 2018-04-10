@@ -41,13 +41,17 @@ public class Customer : User {
         }
         catch (Exception e) { Console.WriteLine(e.Message); }
         Console.Write("Hűtött áru:(igen/nem): ");
-        string cooledString = Console.ReadLine();
+        string cooledString = "";
         Console.WriteLine();
         bool cooled=false;
         while (!cooledString.Equals("nem") && !cooledString.Equals("igen"))
         {
+            cooledString = Console.ReadLine();
             if (cooledString.Equals("igen"))
+            {
                 cooled = true;
+                Console.WriteLine("de hideg ám");
+            }
             else if (cooledString.Equals("nem"))
             {
                 cooled = false;
@@ -107,6 +111,11 @@ public class Customer : User {
     //ez kilistázza az ordereket, ami az adott Customerhez tartozik
     public void ListOrders() {
         OrderingController.ListOrders(ID);
+    }
+
+    public override string ToString()
+    {
+        return "Customer";
     }
 
 }

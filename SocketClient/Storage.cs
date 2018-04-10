@@ -17,9 +17,5 @@ public class Storage {
 
 
     public static int CooledCapacity=800;
-
-
-
-
-
+    internal static readonly int Terminal=10;
 }

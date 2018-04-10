@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -7,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Communication;
+
 
 /*Ez az osztály gondoskodik a TCP/IP kapcsolat kliens oldalával
  * Megadunk egy hostot, amire kapcsolódni szeretnénk és egy hozzá tartozó portot.
@@ -64,6 +66,29 @@ namespace AsynchronousClient
         /*Ez a függvény szolgál a Megrendelések elküldésére a szerverre
         A serializer átalakítja json formátumra (egy sztringre), amit továbbítunk a szervernek, ahol egy
         egy másik serializer visszalakítja objektummá*/
+
+        public static async Task<List<Order>> Load()
+        {
+            try
+            {
+                
+                string requestData = "ListOfOrders"; 
+                await writer.WriteLineAsync(requestData);
+
+                string responseStr = await reader.ReadLineAsync();
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                List<Order> response = serializer.Deserialize<List<Order>>(responseStr);
+                return response;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            
+            
+
+        }
         public static async Task<Order> SendRequest(Order o)
         {
             try

@@ -58,6 +58,7 @@ namespace Communication
 
         public void Print()
         {
+            
             Console.WriteLine("ID: " + ID);
             Console.WriteLine("Tervezett beérkezés: " + DateIn.ToShortDateString());
             Console.WriteLine("Tervezett kivitel: " + DateOut.ToShortDateString());
@@ -73,6 +74,11 @@ namespace Communication
                 Console.WriteLine("Jóváhagyott: igen ");
             else
                 Console.WriteLine("Jóváhagyott: nem ");
+            if (Terminal != 0)
+            {
+                Console.WriteLine("Kocsiszín: " + Terminal);
+            }
+            Console.WriteLine();
 
         }
 

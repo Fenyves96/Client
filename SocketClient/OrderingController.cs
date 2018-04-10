@@ -8,8 +8,12 @@ using System.Xml.Serialization;
 public class OrderingController
 {
     private static List<Order> Orders = new List<Order>();
+    
 
     
+
+
+
     public static void MakeSomeOrder() //Itt csak csináltam pár Ordert, hogy ne kézzel kelljen megadni
     {
         Order o1 = new Order(2, "2018-02-03", "2018-04-05", 21, true, "Köszöntem");
@@ -20,6 +24,12 @@ public class OrderingController
         Orders.Add(o3);
 
     }
+
+    internal static void setOrders(List<Order> orders)
+    {
+        Orders = orders;
+    }
+
     public static void ListOrders(int CustomerID) //orderek listázása Customereknek
     {
         foreach (Order o in Orders)
@@ -36,6 +46,15 @@ public class OrderingController
             
                 o.Print();
         }
+    }
+
+    public static void editTerminal(int ID, int terminal) //adott id-ű order jóváhagyása
+    {
+        if (ID > 0 && ID <= Orders.Count && terminal>0 && terminal <=Storage.Terminal)
+            Orders.Find(x => x.ID == ID).Terminal = terminal;
+
+        else
+            Console.WriteLine("Nincs ilyen ID vagy kocsiszín");
     }
 
     public static void ConfirmOrder(int ID) //adott id-ű order jóváhagyása

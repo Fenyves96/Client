@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MenuContoller.cs" />
+    <Compile Include="OrderConatiner.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ClientProcess.cs" />
     <Compile Include="CommObject.cs" />
