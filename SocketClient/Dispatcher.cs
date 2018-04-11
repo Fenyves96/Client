@@ -17,11 +17,11 @@ public class Dispatcher:User {
 
 
     public void ListOrders() { //Megrendelések listázása
-        OrderingController.ListOrders();
+        OrderController.ListOrders();
     }
 
     public void ConfrimOrders(int ID) {
-        OrderingController.ConfirmOrder(ID);
+        OrderController.ConfirmOrder(ID);
     }
 
     public void EditOrdersTerminal(int ID)
@@ -29,7 +29,7 @@ public class Dispatcher:User {
         //id kiválasztva
         Console.Write("Kiválasztott terminál: ");
         int terminal = Convert.ToInt32(Console.ReadLine());
-        OrderingController.editTerminal(ID, terminal);
+        OrderController.editTerminal(ID, terminal);
     }
 
     public void ListDailyTasks() {
@@ -44,7 +44,7 @@ public class Dispatcher:User {
     internal void EditOrders()
     {
         //kiválasztjuk a módosítani kívánt ordert
-        OrderingController.ListOrders();
+        OrderController.ListOrders();
         Console.WriteLine("Kiválasztott megrendelés ID-ja: ");
         int ID = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Mit szeretne módosítani a megrendelésen?(1-kocsiszín,2-jóváhagyás)");

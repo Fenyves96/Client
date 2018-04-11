@@ -8,8 +8,10 @@ using System.Threading.Tasks;
     public class User
     {
         private static int currentID;
-        protected string Name;
-        protected int ID;
+        public string Name { get; set; }
+        public int ID { get; set; }
+
+        public User() { }
 
         public User(string Name)
         {

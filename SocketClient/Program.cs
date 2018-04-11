@@ -11,15 +11,18 @@ public class Program
         
         SocketClient.StartClient();
         //OrderingController.AddOrder(3, "2018-04-04", "2018-05-05", 3, true, "comment");
-        OrderingController.MakeSomeOrder();
+        //OrderController.MakeSomeOrder();
         //OrderingController.ListOrders();
         //OrderingController.ConfirmOrder(0);
         //OrderingController.ListOrders();
         try
         {
-            Task<List<Order>> tsResponse = SocketClient.Load();
-            OrderingController.setOrders(tsResponse.Result);
-        }catch(Exception e)
+            Task<List<Order>> tsResponseOrders = SocketClient.LoadOrders();
+            OrderController.setOrders(tsResponseOrders.Result);
+            Task<List<Customer>> tsResponseUsers = SocketClient.LoadCustomers();
+            CustomerController.setCustomers(tsResponseUsers.Result);
+        }
+        catch(Exception e)
         {
             Console.WriteLine(e.Message);
             Console.WriteLine(e.StackTrace);
@@ -27,17 +30,21 @@ public class Program
 
 
         User user=LoginController.Login();
-        Type t = user.GetType();
-        if (t.Equals(typeof(Customer)))
+        if (user != null)
         {
-            
-            Customer customer = (Customer)user;
-            MenuContoller.Start(customer);
-        }
-        else if (t.Equals(typeof(Dispatcher)))
-        {
-            Dispatcher dispatcher = (Dispatcher)user;
-            MenuContoller.Start(dispatcher);
+            Type t = user.GetType();
+        
+            if (t.Equals(typeof(Customer)))
+            {
+
+                Customer customer = (Customer)user;
+                MenuContoller.Start(customer);
+            }
+            else if (t.Equals(typeof(Dispatcher)))
+            {
+                Dispatcher dispatcher = (Dispatcher)user;
+                MenuContoller.Start(dispatcher);
+            }
         }
         
 

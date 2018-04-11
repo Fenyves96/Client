@@ -17,15 +17,24 @@ public class Customer : User {
 
     public int StorageCooledCapacity { get; set; }
 
+    public string GetName()
+    {
+        return Name;
+    }
+    public Customer() { }
+
     public Customer(string Name):base(Name)
     {
         
         StorageNormalCapacity = Storage.NormalCapacity;
         StorageCooledCapacity = Storage.CooledCapacity;
     }
+    
 
     //itt még nincs lekezelve a user hülyesége
     public void Ordering() {
+        StorageNormalCapacity = OrderController.GetStorageNormalCapacity();
+        StorageCooledCapacity = OrderController.GetStorageCooledCapacity();
         // TODO implement here
         Console.Write("Beszállítás időpontja(év-hó-nap): ");
         string datein = Console.ReadLine();
@@ -40,9 +49,9 @@ public class Customer : User {
             quantity = Convert.ToInt32(Console.ReadLine()); //hány raklapot szeretnék beszállítani
         }
         catch (Exception e) { Console.WriteLine(e.Message); }
+        Console.WriteLine();
         Console.Write("Hűtött áru:(igen/nem): ");
         string cooledString = "";
-        Console.WriteLine();
         bool cooled=false;
         while (!cooledString.Equals("nem") && !cooledString.Equals("igen"))
         {
@@ -50,7 +59,6 @@ public class Customer : User {
             if (cooledString.Equals("igen"))
             {
                 cooled = true;
-                Console.WriteLine("de hideg ám");
             }
             else if (cooledString.Equals("nem"))
             {
@@ -63,6 +71,7 @@ public class Customer : User {
                 cooledString = Console.ReadLine();
             }
         }
+        Console.WriteLine();
 
         if (cooled)
         {
@@ -99,7 +108,7 @@ public class Customer : User {
 
         try
         {
-            OrderingController.AddOrder(ID, datein, dateout, quantity, cooled, comment);
+            OrderController.AddOrder(ID, datein, dateout, quantity, cooled, comment);
         }
         catch (Exception e)
         {
@@ -110,7 +119,7 @@ public class Customer : User {
     }
     //ez kilistázza az ordereket, ami az adott Customerhez tartozik
     public void ListOrders() {
-        OrderingController.ListOrders(ID);
+        OrderController.ListOrders(ID);
     }
 
     public override string ToString()

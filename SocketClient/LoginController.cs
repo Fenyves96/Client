@@ -21,7 +21,15 @@ internal class LoginController
                 Console.Write("Név: ");
                 name = Console.ReadLine();
                 Console.WriteLine();
-                return new Customer(name);
+                if (CustomerController.Exists(name))
+                {
+                    return CustomerController.GetCustomer(name);
+                }
+                else
+                {
+                    Console.WriteLine("Nincs ilyen felhasználó.");
+                    return null;
+                }
             case (int)Users.dispatcher:
                 Console.Write("Név: ");
                 name = Console.ReadLine();

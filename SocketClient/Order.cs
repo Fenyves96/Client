@@ -37,6 +37,9 @@ namespace Communication
         
 
         public string Comment;
+        private string datein;
+        private string dateout;
+        private int quantity;
 
         public Order() { NextID++; ID = NextID; }
 
@@ -56,9 +59,19 @@ namespace Communication
             
         }
 
+        public Order(int iD, int customerID, string datein, string dateout, int quantity, bool cooled, string comment)
+        {
+            ID = iD;
+            CustomerID = customerID;
+            this.datein = datein;
+            this.dateout = dateout;
+            this.quantity = quantity;
+            Cooled = cooled;
+            Comment = comment;
+        }
+
         public void Print()
         {
-            
             Console.WriteLine("ID: " + ID);
             Console.WriteLine("Tervezett beérkezés: " + DateIn.ToShortDateString());
             Console.WriteLine("Tervezett kivitel: " + DateOut.ToShortDateString());

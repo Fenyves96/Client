@@ -67,14 +67,12 @@ namespace AsynchronousClient
         A serializer átalakítja json formátumra (egy sztringre), amit továbbítunk a szervernek, ahol egy
         egy másik serializer visszalakítja objektummá*/
 
-        public static async Task<List<Order>> Load()
+        public static async Task<List<Order>> LoadOrders()
         {
             try
             {
-                
                 string requestData = "ListOfOrders"; 
                 await writer.WriteLineAsync(requestData);
-
                 string responseStr = await reader.ReadLineAsync();
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 List<Order> response = serializer.Deserialize<List<Order>>(responseStr);
@@ -85,9 +83,24 @@ namespace AsynchronousClient
                 Console.WriteLine(e.Message);
                 return null;
             }
-            
-            
-
+        }
+        
+        public static async Task<List<Customer>> LoadCustomers()
+        {
+            try
+            {
+                string requestData = "ListOfCustomers";
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                List<Customer> response = serializer.Deserialize<List<Customer>>(responseStr);
+                return response;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
         public static async Task<Order> SendRequest(Order o)
         {
@@ -98,7 +111,6 @@ namespace AsynchronousClient
                 await writer.WriteLineAsync(requestData);
                 
                 string responseStr = await reader.ReadLineAsync();
-                Console.WriteLine(responseStr);
                 Order response = serializer.Deserialize<Order>(responseStr);
                 
                 return response;
