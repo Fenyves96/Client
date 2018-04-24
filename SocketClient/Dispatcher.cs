@@ -20,11 +20,11 @@ public class Dispatcher:User {
         OrderController.ListOrders();
     }
 
-    public void ConfrimOrders(int ID) {
+    public void ConfrimOrder(int ID) {
         OrderController.ConfirmOrder(ID);
     }
 
-    public void EditOrdersTerminal(int ID)
+    public void EditOrderTerminal(int ID)
     {
         //id kiválasztva
         Console.Write("Kiválasztott terminál: ");
@@ -52,10 +52,10 @@ public class Dispatcher:User {
         switch (option)
         {
             case (int)1:
-                EditOrdersTerminal(ID);
+                EditOrderTerminal(ID);
                 break;
             case (int)2:
-                ConfrimOrders(ID);
+                ConfrimOrder(ID);
                 break;
             default:
                 Console.WriteLine("Nincs ilyen választási lehetőség.");
@@ -65,6 +65,8 @@ public class Dispatcher:User {
 
     internal void ManageDailyTasks()
     {
-        throw new NotImplementedException();
+        Console.Write("Dátum(év-hó-nap): ");
+        string date = Console.ReadLine();
+        OrderController.ListOrders(date);
     }
 }

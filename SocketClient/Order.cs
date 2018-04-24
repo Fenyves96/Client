@@ -63,9 +63,10 @@ namespace Communication
         {
             ID = iD;
             CustomerID = customerID;
-            this.datein = datein;
-            this.dateout = dateout;
-            this.quantity = quantity;
+            DateIn = DateTime.Parse(datein);
+            DateOut = DateTime.Parse(dateout);
+            PalletQuantity = quantity;
+            OrderTime = DateTime.Now;
             Cooled = cooled;
             Comment = comment;
         }

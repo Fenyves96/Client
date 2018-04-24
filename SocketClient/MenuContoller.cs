@@ -79,7 +79,6 @@ internal class MenuContoller
                     Console.WriteLine("Ilyen menüpont nem létezik");
                     break;
             }
-            Console.WriteLine("---------------------------------------------------------------------");
         }
     }
 

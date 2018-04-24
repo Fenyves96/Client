@@ -23,6 +23,7 @@ internal class LoginController
                 Console.WriteLine();
                 if (CustomerController.Exists(name))
                 {
+
                     return CustomerController.GetCustomer(name);
                 }
                 else
