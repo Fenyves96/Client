@@ -21,6 +21,8 @@ public class Program
             OrderController.setOrders(tsResponseOrders.Result);
             Task<List<Customer>> tsResponseUsers = SocketClient.LoadCustomers();
             CustomerController.setCustomers(tsResponseUsers.Result);
+            Task<List<DeliveryNote>> tsResponseDeliveryNotes = SocketClient.LoadDeliveryNotes();
+            DeliveryNoteController.setDeliveryNotes(tsResponseDeliveryNotes.Result);
         }
         catch(Exception e)
         {

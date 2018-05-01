@@ -25,3 +25,10 @@ C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\obj\Debug\SocketCli
 C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\bin\Debug\SocketClient.exe
 C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\bin\Debug\SocketClient.pdb
 C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\bin\Debug\SocketClient.exe.config
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\bin\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\bin\Debug\SocketClient.pdb
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\SocketClient.exe
+D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\SocketClient.pdb

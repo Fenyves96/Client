@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,23 +22,30 @@ namespace Communication
             Terminal = previousOrder.Terminal;
         }
         public static int NextID = 0;
-        
+
         public int ID { get; set; }
         public int CustomerID { get; set; }
-        public DateTime DateIn { get; set; }
-        public DateTime DateOut { get; set; }
+        public DateTime DateIn
+        {
+            get { return dateIn; }
+            set { dateIn = value.ToLocalTime(); }
+        }
+        public DateTime dateIn;
+        public DateTime DateOut
+        {
+            get { return dateOut; }
+            set { dateOut = value.ToLocalTime(); }
+        }
+        public DateTime dateOut;
         public int PalletQuantity { get; set; }
         public bool Cooled { get; set; }
         public bool Confirmed { get; set; }
         public int Terminal { get; set; }
         public DateTime OrderTime { get; set; } //Mikor lett leadva a megrendelés
         public int DispatcherID { get; set; } //Ki dolgozta fel a megrendelést?
-        
+
 
         public string Comment;
-        private string datein;
-        private string dateout;
-        private int quantity;
 
         public Order() { NextID++; ID = NextID; }
 
@@ -47,7 +53,7 @@ namespace Communication
         {
             NextID++;
             ID = NextID;
-            DateIn = DateTime.Parse(dateIn);
+            this.dateIn = DateTime.Parse(dateIn);
             DateOut = DateTime.Parse(dateOut);
             PalletQuantity = productQuantity;
             Cooled = cooled;
@@ -56,23 +62,27 @@ namespace Communication
             DispatcherID = 0;
             Terminal = 0;
             CustomerID = customerID;
-            
+
         }
 
-        public Order(int iD, int customerID, string datein, string dateout, int quantity, bool cooled, string comment)
+        public Order(int OrderID, int customerID, string dateIn, string dateOut, int productQuantity, bool cooled, string comment = "")
         {
-            ID = iD;
-            CustomerID = customerID;
-            DateIn = DateTime.Parse(datein);
-            DateOut = DateTime.Parse(dateout);
-            PalletQuantity = quantity;
-            OrderTime = DateTime.Now;
+            ID = OrderID;
+            this.dateIn = DateTime.Parse(dateIn);
+            DateOut = DateTime.Parse(dateOut);
+            PalletQuantity = productQuantity;
             Cooled = cooled;
             Comment = comment;
+            OrderTime = DateTime.Now;
+            DispatcherID = 0;
+            Terminal = 0;
+            CustomerID = customerID;
+
         }
 
         public void Print()
         {
+
             Console.WriteLine("ID: " + ID);
             Console.WriteLine("Tervezett beérkezés: " + DateIn.ToShortDateString());
             Console.WriteLine("Tervezett kivitel: " + DateOut.ToShortDateString());
@@ -84,7 +94,7 @@ namespace Communication
                 Console.WriteLine("Hűtött: igen");
             else
                 Console.WriteLine("Hűtött:nem");
-            if(Confirmed)
+            if (Confirmed)
                 Console.WriteLine("Jóváhagyott: igen ");
             else
                 Console.WriteLine("Jóváhagyott: nem ");
@@ -106,7 +116,7 @@ namespace Communication
                     return true;
                 }
             }
-            catch (Exception e) {  }
+            catch (Exception e) { }
             return false;
         }
 

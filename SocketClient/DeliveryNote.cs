@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 public class DeliveryNote
     {
-        private static int currentID;
-        public bool success;
-        public int foremanid;
-        public int orderid;
+        private static int currentID { get; set; }
+        public bool success { get; set; }
+        public int foremanid { get; set; }
+        public int orderid { get; set; }
         public int ID { get; set; }
 
         public DeliveryNote(int id, bool success, int foremanid, int orderid)
         {
-            id = getNextID();
+            ID = id;
             this.success = success;
             this.foremanid = foremanid;
             this.orderid = orderid;
@@ -25,9 +25,24 @@ public class DeliveryNote
             return ++currentID;
         }
 
+    public DeliveryNote() { }
+   
+
     public void Print()
     {
-
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine("ID: " + ID);
+        Console.WriteLine("MegrendelesID: " + orderid);
+        Console.WriteLine("MuszakvezetoID: " + foremanid);
+        if (success)
+        {
+            Console.WriteLine("Teljesített");
+        }
+        else
+        {
+            Console.WriteLine("Még nem teljesített");
+        }
+        Console.WriteLine("-------------------------------");
     }
 
-    }
+ }
