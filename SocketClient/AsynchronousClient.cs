@@ -102,6 +102,24 @@ namespace AsynchronousClient
                 return null;
             }
         }
+
+        public static async Task<List<DeliveryNote>> LoadDeliveryNotes()
+        {
+            try
+            {
+                string requestData = "ListOfDeliveryNotes";
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                List<DeliveryNote> response = serializer.Deserialize<List<DeliveryNote>>(responseStr);
+                return response;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
         public static async Task<Order> SendRequest(Order o)
         {
             try
@@ -113,6 +131,27 @@ namespace AsynchronousClient
                 string responseStr = await reader.ReadLineAsync();
                 Order response = serializer.Deserialize<Order>(responseStr);
                 
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Message);
+                //Console.WriteLine("Valami nem jó.");
+                return null;
+            }
+        }
+        public static async Task<DeliveryNote> SendDeliveryNote(DeliveryNote dn)
+        {
+            try
+            {
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string requestData = serializer.Serialize(dn);
+                await writer.WriteLineAsync(requestData);
+
+                string responseStr = await reader.ReadLineAsync();
+                DeliveryNote response = serializer.Deserialize<DeliveryNote>(responseStr);
+
                 return response;
             }
             catch (Exception ex)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    //Ebből származik a Customer és a Dispatcher
+    //Ebből származik a Customer, a Dispatcher és a Foreman
     public class User
     {
         private static int currentID;

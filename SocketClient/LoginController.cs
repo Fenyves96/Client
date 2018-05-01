@@ -2,8 +2,8 @@
 //Login kezelése
 internal class LoginController
 {
-    enum Users {zeroUser,customer,dispatcher } //zeroUser csak azért van, hogy 1-től induljon a számozás
-    static string[] users = { "Megrendelő", "Diszpécser" };
+    enum Users {zeroUser,customer,dispatcher,foreman } //zeroUser csak azért van, hogy 1-től induljon a számozás
+    static string[] users = { "Megrendelő", "Diszpécser", "Műszakvezető" };
     public static User Login()
     {
         Console.WriteLine("Bejelentkezés");
@@ -36,6 +36,13 @@ internal class LoginController
                 name = Console.ReadLine();
                 Console.WriteLine();
                 return new Dispatcher(name);
+
+            case (int)Users.foreman:
+                Console.Write("Név: ");
+                name = Console.ReadLine();
+                Console.WriteLine();
+                return new Foreman(name);
+
             default:
                 Console.WriteLine("Nem létezik ilyen felhasználó!");
                 return null;

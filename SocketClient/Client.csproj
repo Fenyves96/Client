@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeliveryNote.cs" />
+    <Compile Include="DeliveryNoteController.cs" />
+    <Compile Include="Foreman.cs" />
     <Compile Include="MenuContoller.cs" />
     <Compile Include="OrderConatiner.cs" />
     <Compile Include="User.cs" />

@@ -45,6 +45,11 @@ public class Program
                 Dispatcher dispatcher = (Dispatcher)user;
                 MenuContoller.Start(dispatcher);
             }
+            else if (t.Equals(typeof(Foreman)))
+            {
+                Foreman foreman = (Foreman)user;
+                MenuContoller.Start(foreman);
+            }
         }
         
 

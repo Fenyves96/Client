@@ -1,5 +1,4 @@
 ﻿using System;
-
 internal class MenuContoller
 {
     private static string[] CustomerStringMenu = { "Megrendelés hozzáadása", "Megrendelések listázása", "Kilépés" };
@@ -7,7 +6,10 @@ internal class MenuContoller
 
     private static string[] DispatcherStringMenu = { "Napi feladatok összeállítása","Megrendelések módosítása", "Megrendelések listázása", "Kilépés" };
 
-    private enum DispatcherEnumMenu { zeromenu,manageDailtyTasks, editOrders, listorders, exit };
+    private enum DispatcherEnumMenu { zeromenu, manageDailyTasks, editOrders, listorders, exit };
+
+    private static string[] ForemanStringMenu = { "Megrendelések listázása", "Napi feladatok összeállítása", "Szállítólevelek listázása", "Szállítólevél létrehozása", "Szállítólevél módosítása", "Raktár állapotának lekérése", "Kilépés" };
+    private enum ForemanEnumMenu { zeromenu, listorders, manageDailyTasks, listDeliveryNotes, generateDeliveryNote, editDeliveryNote, showStorageState, exit };
 
 
     //TODO: DispatcherString és Enum Menu és static void Start(Dispatcher dispatcher)
@@ -63,7 +65,7 @@ internal class MenuContoller
             Console.WriteLine();
             switch (option)
             {
-                case (int)DispatcherEnumMenu.manageDailtyTasks:
+                case (int)DispatcherEnumMenu.manageDailyTasks:
                     dispatcher.ManageDailyTasks();
                     break;
                 case (int)DispatcherEnumMenu.editOrders:
@@ -73,6 +75,51 @@ internal class MenuContoller
                     dispatcher.ListOrders();
                     break;
                 case (int)DispatcherEnumMenu.exit:
+                    break;
+
+                default:
+                    Console.WriteLine("Ilyen menüpont nem létezik");
+                    break;
+            }
+        }
+    }
+
+    internal static void Start(Foreman foreman)
+    {
+
+        Console.WriteLine("Válasszon az alábbi lehetőségek közül: ");
+        int option = 0;
+        while (option != (int)ForemanEnumMenu.exit)
+        {
+
+            for (int i = 0; i < ForemanStringMenu.Length; i++)
+            {
+                Console.WriteLine("(" + (i + 1) + ")" + ForemanStringMenu[i]);
+            }
+            Console.Write("Választott opció: ");
+            option = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            switch (option)
+            {
+                case (int)ForemanEnumMenu.listorders:
+                    foreman.ListOrders();
+                    break;
+                case (int)ForemanEnumMenu.manageDailyTasks:
+                    foreman.ManageDailyTasks();
+                    break;
+                case (int)ForemanEnumMenu.listDeliveryNotes:
+                    foreman.ListDeliveryNotes();
+                    break;
+                case (int)ForemanEnumMenu.generateDeliveryNote:
+                    foreman.GenerateDeliveryNote();
+                    break;
+                case (int)ForemanEnumMenu.editDeliveryNote:
+                    foreman.EditDeliveryNotes();
+                    break;
+                case (int)ForemanEnumMenu.showStorageState:
+                    foreman.ShowStorageState();
+                    break;
+                case (int)ForemanEnumMenu.exit:
                     break;
 
                 default:
