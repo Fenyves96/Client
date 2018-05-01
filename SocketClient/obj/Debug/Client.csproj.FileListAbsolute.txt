@@ -19,3 +19,9 @@ D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\SocketClient.exe
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\Programok\Git\Client\SocketClient\obj\Debug\SocketClient.pdb
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\bin\Debug\SocketClient.exe.config
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\obj\Debug\SocketClient.exe
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\obj\Debug\SocketClient.pdb
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\bin\Debug\SocketClient.exe
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\bin\Debug\SocketClient.pdb
+C:\Users\kovac\OneDrive\Documents\GitHub\Client\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache

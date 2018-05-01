@@ -75,6 +75,11 @@ public class OrderController
                 Console.WriteLine();
                 o.Print();
             }
+            if (date.Equals(o.DateOut.ToString("yyyy-MM-dd")))
+            {
+                Console.WriteLine();
+                o.Print();
+            }
 
         }
     }
