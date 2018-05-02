@@ -1,8 +1,8 @@
 ﻿using System;
 internal class MenuContoller
 {
-    private static string[] CustomerStringMenu = { "Megrendelés hozzáadása", "Megrendelések listázása", "Szállítólevelek listázása", "Szállítólevél létrehozása", "Raktár állapotának lekérése", "Kilépés" };
-    private enum CustomerEnumMenu{zeromenu,ordering,listorders, listDeliveryNotes, generateDeliveryNote, showStorageState, exit};
+    private static string[] CustomerStringMenu = { "Megrendelés hozzáadása", "Megrendelések listázása", "Raktár állapotának lekérése", "Kilépés" };
+    private enum CustomerEnumMenu{zeromenu, ordering, listorders, showStorageState, exit};
 
     private static string[] DispatcherStringMenu = { "Napi feladatok összeállítása","Megrendelések módosítása", "Megrendelések listázása", "Raktár állapotának lekérése", "Kilépés" };
 
@@ -37,12 +37,6 @@ internal class MenuContoller
                         break;
                     case (int)CustomerEnumMenu.listorders:
                         customer.ListOrders();
-                        break;
-                    case (int)CustomerEnumMenu.listDeliveryNotes:
-                        customer.ListDeliveryNotes();
-                        break;
-                    case (int)CustomerEnumMenu.generateDeliveryNote:
-                        customer.GenerateDeliveryNote();
                         break;
                     case (int)CustomerEnumMenu.showStorageState:
                         customer.ShowCapacity();
