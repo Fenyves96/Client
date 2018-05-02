@@ -36,12 +36,12 @@ public class Foreman : User
         OrderController.ListOrders();
         Console.WriteLine("Adja meg a rendelés számot!");
         int asd = Convert.ToInt32(Console.ReadLine());
-        asderino(asd);
+        CallingTheDeliveryAdder(asd);                    //ez hívja meg az ez alattit
     }
 
-    public void asderino(int orderid)
-    {
-        DeliveryNoteController.AddDeliveryNote(true, ID, orderid);
+    public void CallingTheDeliveryAdder(int orderid)    //nem tudtam jobb nevet adni, a lényeg, hogy muszáj voltam két fv-el megcsinálni,
+    {                                                   //mert a menü controllerben csak paraméter nélküli függvény lehet (asszem)
+        DeliveryNoteController.AddDeliveryNote(false, ID, orderid);
     }
 
     public void EditDeliveryNotes()
@@ -59,7 +59,8 @@ public class Foreman : User
 
     public void ShowStorageState()
     {
-
+        Console.WriteLine("A normál raktárhelyek száma: " + OrderController.GetStorageNormalCapacity() + "/3000");
+        Console.WriteLine("A hűtött raktárhelyek száma: " + OrderController.GetStorageCooledCapacity() + "/800");
     }
 
     public override string ToString()

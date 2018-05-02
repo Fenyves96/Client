@@ -1,12 +1,12 @@
 ﻿using System;
 internal class MenuContoller
 {
-    private static string[] CustomerStringMenu = { "Megrendelés hozzáadása", "Megrendelések listázása", "Kilépés" };
-    private enum CustomerEnumMenu{zeromenu,ordering,listorders,exit};
+    private static string[] CustomerStringMenu = { "Megrendelés hozzáadása", "Megrendelések listázása", "Szállítólevelek listázása", "Szállítólevél létrehozása", "Raktár állapotának lekérése", "Kilépés" };
+    private enum CustomerEnumMenu{zeromenu,ordering,listorders, listDeliveryNotes, generateDeliveryNote, showStorageState, exit};
 
-    private static string[] DispatcherStringMenu = { "Napi feladatok összeállítása","Megrendelések módosítása", "Megrendelések listázása", "Kilépés" };
+    private static string[] DispatcherStringMenu = { "Napi feladatok összeállítása","Megrendelések módosítása", "Megrendelések listázása", "Raktár állapotának lekérése", "Kilépés" };
 
-    private enum DispatcherEnumMenu { zeromenu, manageDailyTasks, editOrders, listorders, exit };
+    private enum DispatcherEnumMenu { zeromenu, manageDailyTasks, editOrders, listorders, showStorageState, exit };
 
     private static string[] ForemanStringMenu = { "Megrendelések listázása", "Napi feladatok összeállítása", "Szállítólevelek listázása", "Szállítólevél létrehozása", "Szállítólevél módosítása", "Raktár állapotának lekérése", "Kilépés" };
     private enum ForemanEnumMenu { zeromenu, listorders, manageDailyTasks, listDeliveryNotes, generateDeliveryNote, editDeliveryNote, showStorageState, exit };
@@ -33,14 +33,22 @@ internal class MenuContoller
                 {
 
                     case (int)CustomerEnumMenu.ordering:
-                    customer.Ordering();
+                        customer.Ordering();
                         break;
                     case (int)CustomerEnumMenu.listorders:
-                    customer.ListOrders();
+                        customer.ListOrders();
+                        break;
+                    case (int)CustomerEnumMenu.listDeliveryNotes:
+                        customer.ListDeliveryNotes();
+                        break;
+                    case (int)CustomerEnumMenu.generateDeliveryNote:
+                        customer.GenerateDeliveryNote();
+                        break;
+                    case (int)CustomerEnumMenu.showStorageState:
+                        customer.ShowCapacity();
                         break;
                     case (int)CustomerEnumMenu.exit:
                         break;
-
                     default:
                         Console.WriteLine("Ilyen menüpont nem létezik");
                         break;
@@ -73,6 +81,9 @@ internal class MenuContoller
                     break;
                 case (int)DispatcherEnumMenu.listorders:
                     dispatcher.ListOrders();
+                    break;
+                case (int)DispatcherEnumMenu.showStorageState:
+                    dispatcher.ShowStorageState();
                     break;
                 case (int)DispatcherEnumMenu.exit:
                     break;

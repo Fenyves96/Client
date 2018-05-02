@@ -127,4 +127,20 @@ public class Customer : User {
         return "Customer";
     }
 
+    public void ListDeliveryNotes()
+    {
+        //TODO... fogalmam IDK itt mit kéne csinálni. ezt nem csak a műszakvezetőnek kell tudnia???
+    }
+
+    public void GenerateDeliveryNote()
+    {
+        //TODO
+    }
+
+    public void ShowCapacity()
+    {
+        Console.WriteLine("A normál raktárhelyek száma: " + OrderController.GetStorageNormalCapacity() + "/3000");
+        Console.WriteLine("A hűtött raktárhelyek száma: " + OrderController.GetStorageCooledCapacity() + "/800");
+    }
+
 }

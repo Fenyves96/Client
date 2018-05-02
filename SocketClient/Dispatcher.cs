@@ -32,6 +32,12 @@ public class Dispatcher:User {
         OrderController.editTerminal(ID, terminal);
     }
 
+    public void ShowStorageState()
+    {
+        Console.WriteLine("A normál raktárhelyek száma: " + OrderController.GetStorageNormalCapacity() + "/3000");
+        Console.WriteLine("A hűtött raktárhelyek száma: " + OrderController.GetStorageCooledCapacity() + "/800");
+    }
+
     public void ListDailyTasks() {
         // TODO implement here
     }

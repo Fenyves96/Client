@@ -52,22 +52,27 @@ public class DeliveryNoteController
 
         public static void EditDeliveryNote(int value)
         {
-            Console.WriteLine("1 - Sikeresség");
+            Console.WriteLine("1 - Sikeresre állítani");
             Console.WriteLine("2 - Rendelés száma");
             int response = Convert.ToInt32(Console.ReadLine());
-            if (response == 1)
-                Storage.deliverynotes.Find(x => x.ID == value).success = true;
-            else if (response == 2)
-            {
-                Console.WriteLine("Írjon be egy új rendelés számot!");
-                int neworderid = Convert.ToInt32(Console.ReadLine());
-                Storage.deliverynotes.Find(x => x.ID == value).orderid = neworderid;
-            }
-            else Console.WriteLine("Nincs ilyen menüpont!");
+        if (response == 1)
+        {
+            Storage.deliverynotes.Find(x => x.ID == value).success = true;
+            Console.WriteLine("A szállítólevél sikeresre állítva!");
+
+        }
+        else if (response == 2)
+        {
+            Console.WriteLine("Írjon be egy új rendelés számot!");
+            int neworderid = Convert.ToInt32(Console.ReadLine());
+            Storage.deliverynotes.Find(x => x.ID == value).orderid = neworderid;
+            Console.WriteLine("Rendelés szám módosítva!");
+        }
+        else Console.WriteLine("Nincs ilyen menüpont!");
     }
 
     private static int GetNextID()
-        {
-            return (Storage.deliverynotes.Count() + 1);
-        }
+    {
+        return (Storage.deliverynotes.Count() + 1);
+    }
 }
