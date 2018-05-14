@@ -23,8 +23,24 @@ public class Program
             CustomerController.setCustomers(tsResponseUsers.Result);
             Task<List<DeliveryNote>> tsResponseDeliveryNotes = SocketClient.LoadDeliveryNotes();
             DeliveryNoteController.setDeliveryNotes(tsResponseDeliveryNotes.Result);
+
+            int sum=0;
+            int q;
+            Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
+            foreach(Order o in Storage.Orders)
+            {
+                if (o.Cooled) {
+                    Storage.CooledCapacity -= o.PalletQuantity;
+                }
+                else { Storage.NormalCapacity -= o.PalletQuantity; }
+                
+            }
+
+            Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
+
+
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e.Message);
             Console.WriteLine(e.StackTrace);

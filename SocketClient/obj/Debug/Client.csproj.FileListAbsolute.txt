@@ -32,3 +32,10 @@ D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\Soc
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\SocketClient.exe
 D:\Suli\egyetem\6. félév\Rendszerfejlesztés\MasodikIteracio\Client-master\SocketClient\obj\Debug\SocketClient.pdb
+C:\Users\fenyv\Desktop\Client-master\SocketClient\bin\Debug\SocketClient.exe.config
+C:\Users\fenyv\Desktop\Client-master\SocketClient\bin\Debug\SocketClient.exe
+C:\Users\fenyv\Desktop\Client-master\SocketClient\bin\Debug\SocketClient.pdb
+C:\Users\fenyv\Desktop\Client-master\SocketClient\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\fenyv\Desktop\Client-master\SocketClient\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\fenyv\Desktop\Client-master\SocketClient\obj\Debug\SocketClient.exe
+C:\Users\fenyv\Desktop\Client-master\SocketClient\obj\Debug\SocketClient.pdb

@@ -23,7 +23,7 @@ public class Foreman : User
 
     public void ListOrders()
     { 
-        OrderController.ListOrders();
+        OrderController.ListConfirmedOrders();
     }
 
     public void ListDeliveryNotes()
@@ -72,6 +72,6 @@ public class Foreman : User
     {
         Console.Write("Dátum(év-hó-nap): ");
         string date = Console.ReadLine();
-        OrderController.ListOrders(date);
+        OrderController.ListConfirmedOrders(date);
     }
 }

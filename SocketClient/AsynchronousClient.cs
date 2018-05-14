@@ -56,6 +56,57 @@ namespace AsynchronousClient
             }
         }
 
+       public static async Task<int> SetOrderTerminal(int iD, int terminal)
+        {
+            try
+            {
+                string requestData = "SetOrderTerminal";
+                await writer.WriteLineAsync(requestData);
+                requestData = iD.ToString();
+                await writer.WriteLineAsync(requestData);
+                requestData = terminal.ToString();
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                if (responseStr.Equals("success"))
+                {
+                    return 1;
+                }
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                return 0;
+            }
+        }
+
+        public static async Task<int> SetDeliveryNoteToSuccess(int id)
+        {
+
+            try
+            {
+                string requestData = "SetDeliveryNoteToSuccess";
+                await writer.WriteLineAsync(requestData);
+                requestData = id.ToString();
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                if (responseStr.Equals("success"))
+                {
+                    return 1;
+                }
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                return 0;
+            }
+        }
+
         public static void Close()
         {
             if (client.Connected)
@@ -66,7 +117,29 @@ namespace AsynchronousClient
         /*Ez a függvény szolgál a Megrendelések elküldésére a szerverre
         A serializer átalakítja json formátumra (egy sztringre), amit továbbítunk a szervernek, ahol egy
         egy másik serializer visszalakítja objektummá*/
-
+        public static async Task<int> SetOrderConfirmed(int id)
+        {
+            try
+            {
+                string requestData = "SetOrderConfirmed";
+                await writer.WriteLineAsync(requestData);
+                requestData = id.ToString();
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                if (responseStr.Equals("success"))
+                {
+                    return 1;
+                }
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                return 0;
+            }
+        }
         public static async Task<List<Order>> LoadOrders()
         {
             try
@@ -147,14 +220,17 @@ namespace AsynchronousClient
         {
             try
             {
+                string requestData = "AddDeliveryNote";
+                await writer.WriteLineAsync(requestData);
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                string requestData = serializer.Serialize(dn);
+                requestData = serializer.Serialize(dn);
                 await writer.WriteLineAsync(requestData);
 
                 string responseStr = await reader.ReadLineAsync();
                 DeliveryNote response = serializer.Deserialize<DeliveryNote>(responseStr);
-
                 return response;
+
+                
             }
             catch (Exception ex)
             {

@@ -26,7 +26,13 @@ public class DeliveryNote
         }
 
     public DeliveryNote() { }
-   
+
+    public DeliveryNote(bool success, int foremanid, int orderid)
+    {
+        this.success = success;
+        this.foremanid = foremanid;
+        this.orderid = orderid;
+    }
 
     public void Print()
     {
