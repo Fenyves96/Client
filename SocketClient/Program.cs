@@ -8,7 +8,24 @@ public class Program
 {
     public static void Main(String[] args)
     {
+
+        Storage.CooledPlaces = new  bool[800];
+        Storage.NormalPlaces = new bool[3000];
+
+        //Order o = new Order();
+        //o.PalletQuantity = 200;
+        //o.Confirmed = true;
+        //o.ID = 3;
+        //o.Cooled = true;
+        //Storage.Orders = new List<Order>();
+        //Storage.Orders.Add(o);
+        //OrderController.AddOccupiedPlaces(o.ID, o.PalletQuantity);
+        //o.Print();
+
         
+
+
+
         SocketClient.StartClient();
         //OrderingController.AddOrder(3, "2018-04-04", "2018-05-05", 3, true, "comment");
         //OrderController.MakeSomeOrder();
@@ -24,19 +41,20 @@ public class Program
             Task<List<DeliveryNote>> tsResponseDeliveryNotes = SocketClient.LoadDeliveryNotes();
             DeliveryNoteController.setDeliveryNotes(tsResponseDeliveryNotes.Result);
 
-            int sum=0;
-            int q;
-            Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
-            foreach(Order o in Storage.Orders)
-            {
-                if (o.Cooled) {
-                    Storage.CooledCapacity -= o.PalletQuantity;
-                }
-                else { Storage.NormalCapacity -= o.PalletQuantity; }
-                
-            }
 
-            Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
+            //int sum=0;
+            //int q;
+            //Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
+            //foreach(Order o in Storage.Orders)
+            //{
+            //    if (o.Cooled) {
+            //        Storage.CooledCapacity -= o.PalletQuantity;
+            //    }
+            //    else { Storage.NormalCapacity -= o.PalletQuantity; }
+                
+            //}
+
+            //Console.WriteLine(Storage.CooledCapacity + " " + Storage.NormalCapacity);
 
 
         }

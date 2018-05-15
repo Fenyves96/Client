@@ -21,8 +21,13 @@ public class Storage {
     public static List<Foreman> foremans { get; set; }
 
     public static int NormalCapacity=3000; 
-
-
     public static int CooledCapacity=800;
     internal static readonly int Terminal=10;
+
+    //új kód
+    public static bool [] CooledPlaces;
+    
+    public static bool [] NormalPlaces;
+
+
 }

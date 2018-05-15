@@ -240,5 +240,33 @@ namespace AsynchronousClient
                 return null;
             }
         }
+
+        public static async Task<int> SetOrderOccupiedPlaces(int id, int FirstOP, int LastOP)
+        {
+            try
+            {
+                string requestData = "SetOrderOccupiedPlaces";
+                await writer.WriteLineAsync(requestData);
+                requestData = id.ToString();
+                await writer.WriteLineAsync(requestData);
+                requestData = FirstOP.ToString();
+                await writer.WriteLineAsync(requestData);
+                requestData = LastOP.ToString();
+                await writer.WriteLineAsync(requestData);
+                string responseStr = await reader.ReadLineAsync();
+                if (responseStr.Equals("success"))
+                {
+                    return 1;
+                }
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                return 0;
+            }
+        }
     }
 }

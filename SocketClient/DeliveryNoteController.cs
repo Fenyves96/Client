@@ -90,6 +90,14 @@ public class DeliveryNoteController
 
     private static int GetNextID()
     {
-        return (Storage.deliverynotes.Count() + 1);
+        int max = 0;
+        foreach (DeliveryNote d in Storage.deliverynotes)
+        {
+            if (max < d.ID)
+            {
+                max = d.ID;
+            }
+        }
+        return (max + 1);
     }
 }

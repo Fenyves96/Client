@@ -34,8 +34,11 @@ public class Dispatcher:User {
 
     public void ShowStorageState()
     {
-        Console.WriteLine("A normál raktárhelyek száma: " + OrderController.GetStorageNormalCapacity() + "/3000");
-        Console.WriteLine("A hűtött raktárhelyek száma: " + OrderController.GetStorageCooledCapacity() + "/800");
+        Console.WriteLine("A normál raktárhelyek száma:(Összes Megrendelés alapján)" + OrderController.GetStorageNormalCapacity() + "/3000");
+        Console.WriteLine("A hűtött raktárhelyek száma:(Összes Megrendelés alapján)" + OrderController.GetStorageCooledCapacity() + "/800");
+        Console.WriteLine("A normál raktárhelyek száma:(Jóváhagyott Megrendelések alapján)" + OrderController.getOccupiedNormalCapacity() + "/3000");
+        Console.WriteLine("A hűtött raktárhelyek száma:(Jóváhagyott Megrendelések alapján)" + OrderController.getOccupiedCooledCapacity() + "/800");
+
     }
 
     public void ListDailyTasks() {

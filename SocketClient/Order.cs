@@ -22,7 +22,63 @@ namespace Communication
             Terminal = previousOrder.Terminal;
         }
         public static int NextID = 0;
+        /// <summary>
+        //új kód
+        
+        public int FirstOccupiedPlace { get; set; }
+        public int LastOccupiedPlace { get; set; }
 
+        public string GetOccupiedPlaces()
+        {
+            string occupiedPlaces="";
+
+            
+            for(int i = FirstOccupiedPlace; i < LastOccupiedPlace; i++)
+            {
+                
+                if (Cooled)
+                {
+                    
+                    occupiedPlaces += "H";
+                    if (i < 10)
+                    {
+                        occupiedPlaces += "00" + i.ToString();
+                    }
+                    else if (i < 100)
+                    {
+                        occupiedPlaces += "0" + i.ToString();
+                    }
+                    else if (i < 1000)
+                    {
+                        occupiedPlaces += "" + i.ToString();
+                    }
+
+                    occupiedPlaces += "\n";
+                }
+                else
+                {
+                    occupiedPlaces += "S";
+                    if (i < 10)
+                    {
+                        occupiedPlaces += "00" + i.ToString();
+                    }
+                    else if (i < 100)
+                    {
+                        occupiedPlaces += "0" + i.ToString();
+                    }
+                    else if (i < 1000)
+                    {
+                        occupiedPlaces += i.ToString();
+                    }
+                    occupiedPlaces += "\n";
+                }
+            }
+
+
+            return occupiedPlaces;
+        }
+
+        /// </summary>
         public int ID { get; set; }
         public int CustomerID { get; set; }
         public DateTime DateIn
@@ -79,7 +135,7 @@ namespace Communication
             CustomerID = customerID;
 
         }
-
+        //változott
         public void Print()
         {
 
@@ -101,6 +157,14 @@ namespace Communication
             if (Terminal != 0)
             {
                 Console.WriteLine("Kocsiszín: " + Terminal);
+            }
+            Console.WriteLine();
+            if(FirstOccupiedPlace >0 && LastOccupiedPlace > 0)
+            {
+                if(Cooled)
+                Console.WriteLine("H"+FirstOccupiedPlace + ":H" + LastOccupiedPlace);
+                else
+                Console.WriteLine("S" + FirstOccupiedPlace + ":S" + LastOccupiedPlace);
             }
             Console.WriteLine();
 
